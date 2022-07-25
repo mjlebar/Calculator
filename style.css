@@ -1,0 +1,43 @@
+.button {
+  border: 3px solid black;
+  height: 72px;
+  text-align: center;
+  padding-block: 28px;
+  box-sizing: border-box;
+}
+.sq {
+  width: 72px;
+}
+
+.rec {
+  width: 96px;
+}
+
+.calculator {
+  margin: auto;
+  width: 288px;
+  display: flex;
+  flex-direction: column;
+  font-size: large;
+  font-weight: 700;
+  border: 25px solid gray;
+  border-radius: 15px;
+}
+
+.display {
+  border: 3px solid black;
+  width: 288px;
+  height: 72px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  width: 288px;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 36px;
+}
