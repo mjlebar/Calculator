@@ -7,6 +7,23 @@
   width: 72px;
 }
 
+.dig {
+  background-color: fuchsia;
+}
+
+.zero {
+  width: 144px;
+}
+
+.sp {
+  background-color: goldenrod;
+  width: 144px;
+}
+
+.op {
+  background-color: crimson;
+}
+
 .calculator {
   margin: auto;
   width: 288px;
@@ -24,6 +41,7 @@
   height: 72px;
   padding: 24px;
   box-sizing: border-box;
+  background-color: white;
 }
 
 .row {
@@ -34,4 +52,5 @@
 
 body {
   padding: 36px;
+  background-color: aquamarine;
 }
