@@ -22,6 +22,7 @@ function divide(a, b) {
 
 function operate(operator, a, b) {
   let ans;
+  flag = false;
   if (operator === "+") ans = a + b;
   else if (operator === "-") ans = a - b;
   else if (operator === "*") ans = a * b;
@@ -42,6 +43,7 @@ function operate(operator, a, b) {
 let displayVal;
 let calcVal;
 let operator;
+let flag = false;
 
 buttons.forEach((button) => button.addEventListener("click", updateDisplay));
 
@@ -76,9 +78,10 @@ function updateDisplay(e) {
         display.textContent = "";
       }
     } else {
-      if (operator) {
+      if (operator && !flag) {
         displayVal = Number(btn);
         display.textContent = displayVal;
+        flag = true;
       } else {
         display.textContent += btn;
         displayVal = Number(display.textContent);
