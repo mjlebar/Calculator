@@ -4,6 +4,28 @@ const display = document.querySelector(".display");
 
 const buttons = document.querySelectorAll(".button");
 
+const buttonList = [
+  "0",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  ".",
+  "+",
+  "C",
+  "=",
+  "-",
+  "*",
+  "÷",
+  "/",
+  "Enter",
+];
+
 function add(a, b) {
   return a + b;
 }
@@ -26,7 +48,7 @@ function operate(operator, a, b) {
   if (operator === "+") ans = a + b;
   else if (operator === "-") ans = a - b;
   else if (operator === "*") ans = a * b;
-  else if (operator === "÷") {
+  else if (operator === "÷" || operator === "/") {
     if (b === 0) {
       return "ERROR!";
     } else {
@@ -46,16 +68,22 @@ let operator;
 let rightAfterChain = false;
 
 buttons.forEach((button) => button.addEventListener("click", updateDisplay));
+document.addEventListener("keydown", updateDisplay);
 
 function updateDisplay(e) {
-  const btn = e.target.textContent;
+  let btn;
+  if (e.type === "click") {
+    btn = e.target.textContent;
+  } else if (e.type === "keydown" && buttonList.includes(e.key)) {
+    btn = e.key;
+  } else return;
   if (btn === "C") {
     display.textContent = "";
     operator = null;
     calcVal = null;
     displayVal = null;
   } else if (
-    btn === "=" &&
+    (btn === "=" || btn === "Enter") &&
     operator &&
     Number.isFinite(calcVal) &&
     Number.isFinite(displayVal)
@@ -64,8 +92,14 @@ function updateDisplay(e) {
     display.textContent = `${displayVal}`;
     operator = null;
     calcVal = null;
-  } else if (btn != "=") {
-    if (btn === "+" || btn === "*" || btn === "-" || btn === "÷") {
+  } else if (btn != "=" && btn != "Enter") {
+    if (
+      btn === "+" ||
+      btn === "*" ||
+      btn === "-" ||
+      btn === "÷" ||
+      btn === "/"
+    ) {
       if (operator) {
         displayVal = operate(operator, calcVal, displayVal);
         display.textContent = `${displayVal}`;
@@ -75,7 +109,6 @@ function updateDisplay(e) {
         calcVal = displayVal;
         operator = btn;
         displayVal = null;
-        display.textContent = "";
       }
     } else {
       if (btn === ".") {
