@@ -6,26 +6,32 @@
   box-sizing: border-box;
   width: 72px;
 }
+/* ensures regular sizing for all buttons of the calculator */
 
 .dig {
   background-color: fuchsia;
 }
+/* color for digis */
 
-.zero {
+.zero,
+.sp {
   width: 144px;
 }
+/* zero and our bottom two entries are sized differently */
 
 .sp {
   background-color: orange;
-  width: 144px;
 }
+/* coloring for bottom row */
 
 .op {
   background-color: crimson;
 }
+/* coloring for operations */
 
 .calculator {
   margin: auto;
+  /* this keeps it in the center */
   width: 288px;
   display: flex;
   flex-direction: column;
@@ -34,6 +40,7 @@
   border: 25px solid gray;
   border-radius: 15px;
 }
+/* sets up the actual calulator itself and organizes the elements in it */
 
 .display {
   border: 3px solid black;
@@ -43,14 +50,17 @@
   box-sizing: border-box;
   background-color: white;
 }
+/* formats our display */
 
 .row {
   display: flex;
   width: 288px;
   box-sizing: border-box;
 }
+/* makes sure each row is set up correctly */
 
 body {
   padding: 36px;
   background-color: rgb(12, 12, 18);
 }
+/* the padding makes sure the calculator isn't too far close to the top of the page */
